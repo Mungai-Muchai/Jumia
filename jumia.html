@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<meta charset="UTF-8">
+<meta name="veiwport" content="width=device-width, initial-scale=1.0">
+<title>Product Showcase</title>
+<link rel="Stylesheet" href="styles.css">
+<style>
+/*styling for the product grid*/
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;  
+    justify-content: center;
+}
+.product card {                     
+    border: 2px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 5px 10px;
+}
+.product-card img {
+            width: 30%;
+            height: auto;
+        }
+.product-info {
+    padding: 30px;
+}
+.product-title {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .product-price {
+            color: #0b0b0b;
+            font-weight: bold;
+            margin: 10px 0;
+        } 
+        .buy-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Product Showcase Section -->
+    <section class="product-showcase">
+        <h1>Our Products</h1>
+        <div class="product-container" id="productContainer"></div>
+    </section>
+
+    <script>
+        // Array of product data
+        const products = [
+            { title: "Sweater", price: "Ksh 3,000", img: "images/rory´s sweater_3.jpeg" },
+            { title: "Trouser", price: "Ksh 1,500", img: "images/Men's Trousers Chinos Summer Pants Casual Pants Front Pocket Straight Leg Plain Comfort Business Casual Daily Fashion Classic Black Navy Blue Micro-elastic.jpeg" },
+            { title: "Shirt", price: "Ksh 800", img: "images/Cotton Long-Sleeved Shirt.jpeg" }
+        ];
+
+        // Select the container
+        const productContainer = document.getElementById('productContainer');
+
+        // Loop through products array and generate HTML for each product
+        for (let i = 0; i < products.length; i++) {
+            productContainer.innerHTML += `
+                <div class="product-card">
+                    <img src="${products[i].img}" alt="${products[i].title}">
+                    <div class="product-info">
+                        <h2 class="product-title">${products[i].title}</h2>
+                        <p class="product-price">${products[i].price}</p>
+                        <a href="#" class="buy-button">Buy Now</a>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+
+</body>
+</html>         
